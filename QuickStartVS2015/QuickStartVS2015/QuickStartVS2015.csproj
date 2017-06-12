@@ -105,6 +105,7 @@
     <Content Include="src\systemjs.config.extras.js" />
     <Content Include="src\systemjs.config.js" />
     <Content Include="src\tsconfig.json" />
+    <None Include="Properties\PublishProfiles\Local Publish.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
