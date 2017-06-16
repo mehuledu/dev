@@ -1,4 +1,5 @@
-﻿// gulpfile.js 
+﻿/// <binding BeforeBuild='buildForDevelopment' />
+// gulpfile.js 
 
 var gulp = require('gulp');
 var Builder = require('systemjs-builder');
@@ -17,7 +18,7 @@ gulp.task('@angular.js', function () {
 
     var SystemBuilder = require('systemjs-builder');
 
-    var builder = new SystemBuilder('./', 'systemjs.config.js');
+    var builder = new SystemBuilder('./', 'src/systemjs.config.js');
 
     builder.bundle('@angular/core', appDevTemp + '/core.js');
     builder.bundle('@angular/compiler', appDevTemp + '/compiler.js');
@@ -31,9 +32,6 @@ gulp.task('@angular.js', function () {
     return;
 
 });
-//
-//  minify the development build for angular 2
-//
 gulp.task('buildForDevelopment', ["@angular.js"],
     function () {
         return gulp.src(appDevTemp + '/*.js').pipe(uglify())

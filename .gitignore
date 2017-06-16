@@ -240,3 +240,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/QuickStartVS2015/QuickStartVS2015/scripts/temp/angular2
