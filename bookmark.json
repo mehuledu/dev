@@ -1,14 +1,22 @@
-[
-  "bookmarks": {
-    {
-      "category" : "angular",
+{
+  "Angular": [{
       "name": "ANGULAR2 - STEP BY STEP GUIDE OF USING ANGULAR2 WITH TYPESCRIPT FOR ASP.NET MVC IN VISUAL STUDIO 2015",
       "url": "https://hassantariqblog.wordpress.com/2016/10/08/angular2-using-angular2-with-typescript-for-asp-net-mvc-in-visual-studio-2015/"
     },
     {
-      "category": "angular",
       "name": "How to reuse existing C# class definitions in TypeScript projects"
       "url": "https://stackoverflow.com/questions/12957820/how-to-reuse-existing-c-sharp-class-definitions-in-typescript-projects"
+    },
+    {
+      "name": "Observer"
+      "url": "https://angular-2-training-book.rangle.io/handout/observables/using_observables.html"
     }
-  }
-]
+  }],
+  "Net": [{
+    "name": "Supercomputing with the .NET Task Parallel Library",
+    "url": "https://visualstudiomagazine.com/articles/2017/04/01/supercomputing.aspx"
+  }]
+  "training": [{ 
+    "1" : "https://johnpapa.net/articles/"
+  }]
+}
