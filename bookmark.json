@@ -24,7 +24,8 @@
     }
   ],
   "training": [
-    { "1" : "https://johnpapa.net/articles/" }
-    { "2" : "https://vimeo.com/221873129"}
+    { "url" : "https://johnpapa.net/articles/" }
+    { "url" : "https://vimeo.com/221873129"},
+    { "url" : "https://stackoverflow.com/questions/40696187/how-to-filter-items-inside-ngfor-loop-based-on-object-property-string"}
   ]
 }
