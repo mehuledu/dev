@@ -1,5 +1,12 @@
-{
-  "category" : "angular"
+[
+  {
+  "category" : "angular",
   "name": "ANGULAR2 - STEP BY STEP GUIDE OF USING ANGULAR2 WITH TYPESCRIPT FOR ASP.NET MVC IN VISUAL STUDIO 2015",
   "url": "https://hassantariqblog.wordpress.com/2016/10/08/angular2-using-angular2-with-typescript-for-asp-net-mvc-in-visual-studio-2015/"
-}
+  },
+  {
+    "category": "angular",
+    "name": "How to reuse existing C# class definitions in TypeScript projects"
+    "url": "https://stackoverflow.com/questions/12957820/how-to-reuse-existing-c-sharp-class-definitions-in-typescript-projects"
+  },
+]
