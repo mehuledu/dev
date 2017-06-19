@@ -20,7 +20,8 @@
   "Angular Others" :[
     { "url" : "https://medium.com/burak-tasci/angular-4-with-server-side-rendering-aka-angular-universal-f6c228ded8b0"},
     { "url" : "https://www.codeproject.com/Articles/1115444/Developing-And-Deploying-An-Angular-Application-Wi"},
-    { "url" : "https://codecraft.tv/courses/angular/forms/model-driven-validation/"  }
+    { "url" : "https://codecraft.tv/courses/angular/forms/model-driven-validation/"  },
+    { "url" : "https://blogs.msmvps.com/deborahk/creating-a-filter-pipe-in-angular-2/"}
   ],
   "Net": [
     {
