@@ -13,7 +13,8 @@
       "urls": [
         { "url": "https://angular-2-training-book.rangle.io/handout/observables/using_observables.html" },
         { "url": "https://angular-2-training-book.rangle.io/handout/di/angular2/inject_and_injectable.html"},
-        { "url": "https://angular-2-training-book.rangle.io/handout/modules/feature-modules.html"}
+        { "url": "https://angular-2-training-book.rangle.io/handout/modules/feature-modules.html"},
+        { "url": "https://angular-2-training-book.rangle.io/handout/modules/multiple-elements.html"}
       ]
     }
   ],
