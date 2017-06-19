@@ -13,10 +13,14 @@
       "urls": [
         { "url": "https://angular-2-training-book.rangle.io/handout/observables/using_observables.html" },
         { "url": "https://angular-2-training-book.rangle.io/handout/di/angular2/inject_and_injectable.html"},
-        { "url": "https://angular-2-training-book.rangle.io/handout/modules/feature-modules.html"},
-        { "url": "https://www.codeproject.com/Articles/1115444/Developing-And-Deploying-An-Angular-Application-Wi"}
+        { "url": "https://angular-2-training-book.rangle.io/handout/modules/feature-modules.html"}
       ]
     }
+  ],
+  "Angular Others" :[
+    { "url" : "https://medium.com/burak-tasci/angular-4-with-server-side-rendering-aka-angular-universal-f6c228ded8b0"},
+    { "url" : "https://www.codeproject.com/Articles/1115444/Developing-And-Deploying-An-Angular-Application-Wi"},
+    { "url" : "https://codecraft.tv/courses/angular/forms/model-driven-validation/"  }
   ],
   "Net": [
     {
