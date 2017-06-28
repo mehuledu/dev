@@ -34,13 +34,8 @@
     "@angular/router": "~4.0.0",
     "angular-in-memory-web-api": "~0.3.0",
     "core-js": "^2.4.1",
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-uglify": "^3.0.0",
-    "run-sequence": "^1.2.2",
     "rxjs": "5.0.1",
     "systemjs": "0.19.40",
-    "systemjs-builder": "^0.16.9",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
@@ -59,7 +54,12 @@
     "protractor": "~4.0.14",
     "rimraf": "^2.5.4",
     "@types/node": "^6.0.46",
-    "@types/jasmine": "2.5.36"
+    "@types/jasmine": "2.5.36",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "run-sequence": "^1.2.2",
+    "systemjs-builder": "^0.16.9"
   },
   "repository": {}
 }
