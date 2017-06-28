@@ -1,0 +1,41 @@
+{
+  "Angular": [
+    {
+      "name": "ANGULAR2 - STEP BY STEP GUIDE OF USING ANGULAR2 WITH TYPESCRIPT FOR ASP.NET MVC IN VISUAL STUDIO 2015",
+      "url": "https://hassantariqblog.wordpress.com/2016/10/08/angular2-using-angular2-with-typescript-for-asp-net-mvc-in-visual-studio-2015/"
+    },
+    {
+      "name": "How to reuse existing C# class definitions in TypeScript projects",
+      "url": "https://stackoverflow.com/questions/12957820/how-to-reuse-existing-c-sharp-class-definitions-in-typescript-projects"
+    },
+    {
+      "name": "https://angular-2-training-book.rangle.io/",
+      "urls": [
+        { "url": "https://angular-2-training-book.rangle.io/handout/observables/using_observables.html" },
+        { "url": "https://angular-2-training-book.rangle.io/handout/di/angular2/inject_and_injectable.html"},
+        { "url": "https://angular-2-training-book.rangle.io/handout/modules/feature-modules.html"},
+        { "url": "https://angular-2-training-book.rangle.io/handout/modules/multiple-elements.html"}
+      ]
+    }
+  ],
+  "Angular Others" :[
+    { "url" : "https://medium.com/burak-tasci/angular-4-with-server-side-rendering-aka-angular-universal-f6c228ded8b0"},
+    { "url" : "https://medium.com/front-end-hacking/angular-2-let-s-talk-about-pipes-ng-filter-in-angular-1-f46319edaf73"},
+    { "url" : "https://www.codeproject.com/Articles/1115444/Developing-And-Deploying-An-Angular-Application-Wi"},
+    { "url" : "https://codecraft.tv/courses/angular/forms/model-driven-validation/"  },
+    { "url" : "https://blogs.msmvps.com/deborahk/creating-a-filter-pipe-in-angular-2/"},
+    { "url" : "http://blog.brecht.io/Modals-in-angular2/"}
+  ],
+  "Net": [
+    {
+      "name": "Supercomputing with the .NET Task Parallel Library",
+      "url": "https://visualstudiomagazine.com/articles/2017/04/01/supercomputing.aspx"
+    }
+  ],
+  "training": [
+    { "url" : "https://johnpapa.net/articles/" }
+    { "url" : "https://vimeo.com/221873129"},
+    { "url" : "https://stackoverflow.com/questions/40696187/how-to-filter-items-inside-ngfor-loop-based-on-object-property-string"},
+    { "url" : "https://codecraft.tv/courses/angular/forms/model-driven/"}
+  ]
+}
