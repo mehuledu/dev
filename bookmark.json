@@ -25,7 +25,8 @@
     { "url" : "https://codecraft.tv/courses/angular/forms/model-driven-validation/"  },
     { "url" : "https://blogs.msmvps.com/deborahk/creating-a-filter-pipe-in-angular-2/"},
     { "url" : "http://blog.brecht.io/Modals-in-angular2/"},
-    { "url" : "https://gist.github.com/mehuledu"}
+    { "url" : "https://gist.github.com/mehuledu"},
+    { "url" : "http://www.syntaxsuccess.com/angular-2-samples/#/demo/jquery"}
   ],
   "Net": [
     {
