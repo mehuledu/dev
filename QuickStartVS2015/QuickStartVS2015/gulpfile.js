@@ -2,38 +2,104 @@
 // gulpfile.js 
 
 var gulp = require('gulp');
-var Builder = require('systemjs-builder');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var runSequence = require('run-sequence');
+var del = require('del');
+var ts = require('gulp-typescript');
+var merge = require('merge2');
+var connect = require('gulp-connect');
+var tslint = require('gulp-tslint');
 
-var appProd = './scripts';
-var appDevTemp = './scripts/temp/angular2';
+var tsproj = ts.createProject('./src/tsconfig.json');
+var exmapProj = ts.createProject('./src/tsconfig.json', { declaration: false });
 
-//
-// the following series of tasks builds each component of angular 2 into a temp directory 
-// for caching in development mode
-//
-gulp.task('@angular.js', function () {
+gulp.task('compile:src', function () {
+    var tsResult = gulp.src(['components/**/*.ts', 'typings/**/*.ts'])
+                .pipe(tsproj());
 
-    var SystemBuilder = require('systemjs-builder');
-
-    var builder = new SystemBuilder('./', 'src/systemjs.config.js');
-
-    builder.bundle('@angular/core', appDevTemp + '/core.js');
-    builder.bundle('@angular/compiler', appDevTemp + '/compiler.js');
-    builder.bundle('@angular/forms', appDevTemp + '/forms.js');
-    builder.bundle('@angular/common', appDevTemp + '/common.js');
-    builder.bundle('@angular/http', appDevTemp + '/http.js');
-    builder.bundle('@angular/router', appDevTemp + '/router.js');
-    builder.bundle('@angular/platform-browser', appDevTemp + '/platform-browser.js');
-    builder.bundle('@angular/platform-browser-dynamic', appDevTemp + '/platform-browser-dynamic.js');
-    builder.bundle('rxjs/Rx', appDevTemp + '/rxjs.js');
-    return;
-
+    return merge([
+        tsResult.dts.pipe(gulp.dest('./components/')),
+        tsResult.js.pipe(gulp.dest('./components/'))
+    ]);
 });
-gulp.task('buildForDevelopment', ["@angular.js"],
-    function () {
-        return gulp.src(appDevTemp + '/*.js').pipe(uglify())
-                  .pipe(concat('angular2-dev.min.js')).pipe(gulp.dest(appProd));
+
+gulp.task('compile:examples', function (done) {
+    var promises = [];
+    promises.push(new Promise(function (resolve) {
+        gulp.src(['examples/**/*.ts', 'typings/**/*.ts'])
+            .pipe(exmapProj())
+            .pipe(gulp.dest('dist'))
+            .on('end', function () {
+                resolve();
+            });
+    }))
+
+    promises.push(new Promise(function (resolve) {
+        gulp.src(['examples/**/*.html'])
+        .pipe(gulp.dest('dist'))
+        .on('end', function () {
+            resolve();
+        });
+
+    }))
+
+    promises.push(new Promise(function (resolve) {
+        gulp.src(['examples/**/*.js'])
+            .pipe(gulp.dest('dist'))
+            .on('end', function () {
+                resolve();
+            });
+    }));
+
+    promises.push(new Promise(function (resolve) {
+        gulp.src(['examples/**/*.css'])
+            .pipe(gulp.dest('dist'))
+            .on('end', function () {
+                resolve();
+            });
+    }));
+
+    Promise.all(promises).then(function () {
+        done();
     });
+});
+
+gulp.task('compile:index', function () {
+    var tsResult = gulp.src(['./index.ts', 'typings/**/*.ts'])
+            .pipe(tsproj());
+
+    return merge([
+        tsResult.dts.pipe(gulp.dest('./')),
+        tsResult.js.pipe(gulp.dest('./'))
+    ]);
+});
+
+gulp.task('compile', gulp.series('compile:src', 'compile:index', 'compile:examples'));
+
+gulp.task('lint:src', function () {
+    return gulp.src(['components/**/*.ts'])
+            .pipe((tslint({
+                formatter: "verbose"
+            })))
+            .pipe(tslint.report());
+});
+
+gulp.task('lint:examples', function () {
+    return gulp.src(['examples/**/*.ts'])
+            .pipe((tslint({
+                formatter: "verbose"
+            })))
+            .pipe(tslint.report());
+});
+
+//gulp.task('lint', gulp.series('lint:src', 'lint:examples'));
+
+gulp.task('serve', function () {
+    connect.server();
+});
+
+gulp.task('clean', function () {
+    return del(['components/**/*.js', 'components/**/*.d.ts', 'dist', 'index.js', 'index.d.ts'])
+});
+
+gulp.task('build', gulp.series('clean', 'lint', 'compile'));
+
+gulp.task('publish', gulp.series('clean', 'lint', 'compile:src', 'compile:index'));
