@@ -12,8 +12,9 @@ var tsproj = ts.createProject('./src/tsconfig.json');
 var exmapProj = ts.createProject('./src/tsconfig.json', { declaration: false });
 
 gulp.task('compile:src', function () {
-    var tsResult = gulp.src(['components/**/*.ts', 'typings/**/*.ts'])
-                .pipe(tsproj());
+    var tsResult = gulp
+        .src(['components/**/*.ts', 'typings/**/*.ts'])
+        .pipe(tsproj());
 
     return merge([
         tsResult.dts.pipe(gulp.dest('./components/')),
@@ -103,3 +104,8 @@ gulp.task('clean', function () {
 gulp.task('build', gulp.series('clean', 'lint', 'compile'));
 
 gulp.task('publish', gulp.series('clean', 'lint', 'compile:src', 'compile:index'));
+
+
+/** 
+Ref: http://blog.scottlogic.com/2015/12/24/creating-an-angular-2-build.html
+*/
