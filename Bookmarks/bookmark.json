@@ -68,7 +68,8 @@
     { "url" : "https://codecraft.tv/courses/angular/forms/model-driven/"}
   ],
   "Exchange":[
-    { url : "https://msdn.microsoft.com/en-us/library/office/dn495611(v=exchg.150).aspx"}
+    { url : "https://msdn.microsoft.com/en-us/library/office/dn495611(v=exchg.150).aspx"},
+    { url : "https://msdn.microsoft.com/en-us/library/office/dn495610(v=exchg.150).aspx#bk_UpdateMtgEWSMA"}
   ]
   
 }
