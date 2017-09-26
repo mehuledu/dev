@@ -66,6 +66,9 @@
     { "url" : "https://vimeo.com/221873129"},
     { "url" : "https://stackoverflow.com/questions/40696187/how-to-filter-items-inside-ngfor-loop-based-on-object-property-string"},
     { "url" : "https://codecraft.tv/courses/angular/forms/model-driven/"}
+  ],
+  "Exchange":[
+    { url : "https://msdn.microsoft.com/en-us/library/office/dn495611(v=exchg.150).aspx"}
   ]
   
 }
