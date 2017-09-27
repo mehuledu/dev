@@ -71,7 +71,8 @@
     { url : "https://msdn.microsoft.com/en-us/library/office/dn495611(v=exchg.150).aspx"},
     { url : "https://msdn.microsoft.com/en-us/library/office/dn495610(v=exchg.150).aspx#bk_UpdateMtgEWSMA"},
     { url : "https://forums.asp.net/t/1909230.aspx?Windows+Authentication+C+with+System+Net+CredentialCache+DefaultNetworkCredentials"},
-    { url : "https://blogs.msdn.microsoft.com/chiranth/2014/04/17/setting-up-kerberos-authentication-for-a-website-in-iis/"}
+    { url : "https://blogs.msdn.microsoft.com/chiranth/2014/04/17/setting-up-kerberos-authentication-for-a-website-in-iis/"},
+    { url : "https://msdn.microsoft.com/en-us/library/office/dn903761(v=exchg.150).aspx"}
   ]
   
 }
