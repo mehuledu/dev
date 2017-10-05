@@ -46,6 +46,7 @@
     { rating: 0, url: "https://dzone.com/articles/how-does-angular-2-change-detection-really-work-1", "note": "Change Detection"},
     { rating: 0, url: "https://blog.thoughtram.io/angular/2016/02/22/angular-2-change-detection-explained.html", "note": "Change Detection"},
     { rating: 0, url: "https://hahoangv.wordpress.com/2016/07/05/angular2-by-example-series-working-with-pipes/", "note": "Change Detection"},
+    { rating: 0, url: "http://blog.scottlogic.com/2015/08/10/ts-vs-proj.html"}
   ],
   "Net": [
     { 
