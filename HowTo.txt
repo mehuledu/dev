@@ -1,0 +1,5 @@
+Oci Link: https://passport.gov.in/oci/capchaAction 
+browse in IE
+and use IE while submitting
+it does not work well with chrome and mobile browsers
+desktop IE works fine
