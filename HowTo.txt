@@ -3,3 +3,11 @@ browse in IE
 and use IE while submitting
 it does not work well with chrome and mobile browsers
 desktop IE works fine
+===
+var res = input.filter(function f(o) {
+  if (o.value.includes("Hit")) return true
+
+  if (o.children) {
+    return (o.children = o.children.filter(f)).length
+  }
+})
