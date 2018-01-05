@@ -1,0 +1,128 @@
+[css]
+table.table-autocomplete {
+    width: 100%;
+}
+table.table-autocomplete thead tr {
+    border-bottom: solid 1px #B6B6B6;
+}
+table.table-autocomplete thead tr th {
+    padding: 5px;
+}
+table.table-autocomplete .ui-menu-item td {
+    border-left: solid 1px #B6B6B6;
+    padding: 5px;
+}
+
+[html]
+<form novalidate="novalidate" action="#" method="post">
+    <fieldset>
+        <legend>Type "s"</legend>
+        <div class='form-group'>
+            <div class='col-sm-11'>
+                <div class="form-group string required search_field">
+                    <label class="string required control-label" for="search_field"><abbr title="required">*</abbr> Search</label>
+                    <input class="string required form-control" style="width:250px" type="text" name="search_field" id="search_field" />
+                </div>
+                <div class="form-group string selected_id">
+                    <label class="string required control-label" for="search_field">Selected ID</label>
+                    <input class="form-control" type="text" name="selected_id" style="width:250px" id="selected_id" />
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+[js]
+$.widget('custom.tableAutocomplete', $.ui.autocomplete, {
+    options: {
+        open: function (event, ui) {
+            // Hack to prevent a 'menufocus' error when doing sequential searches using only the keyboard
+            $('.ui-autocomplete .ui-menu-item:first').trigger('mouseover');
+        },
+        focus: function (event, ui) {
+            event.preventDefault();
+        }
+    },
+    _create: function () {
+        this._super();
+        // Using a table makes the autocomplete forget how to menu.
+        // With this we can skip the header row and navigate again via keyboard.
+        this.widget().menu("option", "items", ".ui-menu-item");
+    },
+    _renderMenu: function (ul, items) {
+        var self = this;
+        var $table = $('<table class="table-autocomplete">'),
+            $thead = $('<thead>'),
+            $headerRow = $('<tr>'),
+            $tbody = $('<tbody>');
+
+        $.each(self.options.columns, function (index, columnMapping) {
+            $('<th>').text(columnMapping.title).appendTo($headerRow);
+        });
+
+        $thead.append($headerRow);
+        $table.append($thead);
+        $table.append($tbody);
+
+        ul.html($table);
+
+        $.each(items, function (index, item) {
+            self._renderItemData(ul, ul.find("table tbody"), item);
+        });
+    },
+    _renderItemData: function (ul, table, item) {
+        return this._renderItem(table, item).data("ui-autocomplete-item", item);
+    },
+    _renderItem: function (table, item) {
+        var self = this;
+        var $tr = $('<tr class="ui-menu-item" role="presentation">');
+
+        $.each(self.options.columns, function (index, columnMapping) {
+            var cellContent = !item[columnMapping.field] ? '' : item[columnMapping.field];
+            $('<td>').text(cellContent).appendTo($tr);
+        });
+
+        return $tr.appendTo(table);
+    }
+});
+
+$(function () {
+    var result_sample = [{
+        "id": 26,
+        "value": "Ladislau Santos Jr.",
+        "email": "klber_moraes@email.net",
+        "address": "9867 Roberta Rua"
+    }, {
+        "id": 14,
+        "value": "Pablo Santos",
+        "email": "pablo@xpto.org",
+        "address": "7540 Moreira Ponte"
+    }, {
+        "id": 13,
+        "value": "Souza, Nogueira e Santos",
+        "email": null,
+        "address": "3504 Melo Marginal"
+    }];
+
+    $('input#search_field').tableAutocomplete({
+        source: result_sample,
+        columns: [{
+            field: 'value',
+            title: 'Name'
+        }, {
+            field: 'email',
+            title: 'E-mail'
+        }, {
+            field: 'address',
+            title: 'Address'
+        }],
+        delay: 500,
+        select: function (event, ui) {
+            if (ui.item != undefined) {
+                $(this).val(ui.item.value);
+                $('#selected_id').val(ui.item.id);
+            }
+            return false;
+        }
+    });
+});
