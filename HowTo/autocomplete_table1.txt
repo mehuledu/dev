@@ -1,0 +1,70 @@
+[html]
+<div id="project-label">Select a project (type "s" for a start):</div>
+<input id="project">
+<input type="hidden" id="project-id">
+<p id="project-description"></p>
+
+[js]
+$(function() {
+//overriding jquery-ui.autocomplete .js functions
+$.ui.autocomplete.prototype._renderMenu = function(ul, items) {
+  var self = this;
+  //table definitions
+  ul.append("<table><thead><tr><th>ID#</th><th>Name</th><th>Cool&nbsp;Points</th></tr></thead><tbody></tbody></table>");
+  $.each( items, function( index, item ) {
+    self._renderItemData(ul, ul.find("table tbody"), item );
+  });
+};
+$.ui.autocomplete.prototype._renderItemData = function(ul,table, item) {
+  return this._renderItem( table, item ).data( "ui-autocomplete-item", item );
+};
+$.ui.autocomplete.prototype._renderItem = function(table, item) {
+  return $( "<tr class='ui-menu-item' role='presentation'></tr>" )
+    //.data( "item.autocomplete", item )
+    .append( "<td >"+item.id+"</td>"+"<td>"+item.value+"</td>"+"<td>"+item.cp+"</td>" )
+    .appendTo( table );
+};
+//random json values
+var projects = [
+	{id:1,value:"Thomas",cp:134},
+    {id:65,value:"Richard",cp:1743},
+    {id:235,value:"Harold",cp:7342},
+    {id:78,value:"Santa Maria",cp:787},
+	{id:75,value:"Gunner",cp:788},
+	{id:124,value:"Shad",cp:124},
+	{id:1233,value:"Aziz",cp:3544},
+	{id:244,value:"Buet",cp:7847}
+];
+$( "#project" ).autocomplete({
+	minLength: 1,
+	source: projects,
+    
+	focus: function( event, ui ) {
+        if (ui.item != undefined)
+        {
+            console.log(ui.item.value);
+            $( "#project" ).val( ui.item.value );
+		    $( "#project-id" ).val( ui.item.id );
+		    $( "#project-description" ).html( ui.item.cp );
+        }
+		return false;
+	}//you can write for select too
+    /*select:*/
+})
+});
+
+[css]
+#project-label {
+display: block;
+font-weight: bold;
+margin-bottom: 1em;
+}
+#project-icon {
+float: left;
+height: 32px;
+width: 32px;
+}
+#project-description {
+margin: 0;
+padding: 0;
+}
