@@ -70,10 +70,37 @@ padding: 0;
 }
 
 
-===
+=== # 1
 $( "#targetinput" ).autocomplete({ .... }).data( "autocomplete" )._renderItem = function( ul, item ) {
     return $( "<li></li>" )
         .data( "item.autocomplete", item )
         .append( "<table><tr><td>" + item.id+ " </td><td> " + item.label+ "</td></tr></table>" )
         .appendTo( ul );
 };
+
+=== # 2
+$.ui.autocomplete.prototype._renderMenu = function(ul, items) {
+  var self = this;
+  ul.append("<table><thead><tr><th>ID#</th><th>Name</th><th>Cool&nbsp;Points</th></tr></thead><tbody></tbody></table>");
+  $.each( items, function( index, item ) {
+    self._renderItem( ul.find("table tbody"), item );
+  });
+};
+
+$.ui.autocomplete.prototype._renderItem = function(table, item) {
+  return $( "<tr></tr>" )
+    .data( "item.autocomplete", item )
+    .append( "<td>"+item.id+"</td>"+"<td>"+item.value+"</td>"+"<td>"+item.cp+"</td>" )
+    .appendTo( table );
+};
+
+$("#search").autocomplete({
+  source: [
+    {id:1,value:"Thomas",cp:134},
+    {id:65,value:"Richard",cp:1743},
+    {id:235,value:"Harold",cp:7342},
+    {id:982,value:"Nina",cp:21843},
+    {id:724,value:"Pinta",cp:35},
+    {id:78,value:"Santa Maria",cp:787}],
+  minLength: 1
+});
