@@ -104,3 +104,6 @@ $("#search").autocomplete({
     {id:78,value:"Santa Maria",cp:787}],
   minLength: 1
 });
+
+
+# https://stackoverflow.com/questions/43597209/ajax-putting-auto-complete-result-into-html-table
