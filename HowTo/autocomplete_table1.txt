@@ -68,3 +68,12 @@ width: 32px;
 margin: 0;
 padding: 0;
 }
+
+
+===
+$( "#targetinput" ).autocomplete({ .... }).data( "autocomplete" )._renderItem = function( ul, item ) {
+    return $( "<li></li>" )
+        .data( "item.autocomplete", item )
+        .append( "<table><tr><td>" + item.id+ " </td><td> " + item.label+ "</td></tr></table>" )
+        .appendTo( ul );
+};
