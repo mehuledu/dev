@@ -1,3 +1,5 @@
+https://codepen.io/rishich/pen/aWOoJy
+
 [html]
 <div id="project-label">Select a project (type "s" for a start):</div>
 <input id="project">
