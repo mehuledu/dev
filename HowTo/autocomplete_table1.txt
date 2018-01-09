@@ -1,3 +1,4 @@
+https://forums.asp.net/t/1899115.aspx?Use+Full+Ajax+Jquery+Libraries+example+multicoulmn+auto+complete+linq+queries+with+javascript+json+object+to+html+table+etc
 https://stackoverflow.com/questions/14072487/override-both-renderitem-and-rendermenu
 https://codepen.io/rishich/pen/aWOoJy
 
