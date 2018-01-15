@@ -113,3 +113,66 @@ $("#search").autocomplete({
 
 
 # https://stackoverflow.com/questions/43597209/ajax-putting-auto-complete-result-into-html-table
+
+    $(function() {
+        var availableTags = [
+            "win the day",
+            "win the heart of",
+            "win the heart of someone"
+        ];
+
+        $( "#tags" ).autocomplete({
+            source: function(request, response) {
+                
+                var aryResponse = [];
+                var arySplitRequest = request.term.split(" ");
+                
+                for( i = 0; i < availableTags.length; i++ ) {
+                    
+                    var intCount = 0;
+                    for( j = 0; j < arySplitRequest.length; j++ ) {
+           
+                        regexp = new RegExp(arySplitRequest[j]);
+
+                        var test = availableTags[i].match(regexp);
+                        
+                        if( test ) {
+                            
+                            intCount++;
+           
+                        } else if( !test ) {
+
+                        intCount = arySplitRequest.length + 1;
+                        
+                        }
+           
+                        if ( intCount == arySplitRequest.length ) {
+                            
+                            aryResponse.push( availableTags[i] );
+                            
+                        }
+                    };
+                }
+                
+                response(aryResponse);
+                                
+            }
+                
+        }).data('autocomplete')._renderItem = function( ul, item ) {
+          
+            var srchTerm = this.term.trim().split(/\s+/).join ('|');
+            
+            var strNewLabel = item.label;
+           
+                regexp = new RegExp ('(' + srchTerm + ')', "ig");
+                
+                var strNewLabel = strNewLabel.replace(regexp,"<span style='font-weight:bold;color:Blue;'>$1</span>");
+            
+          return $( "<li></li>" )
+              .data( "item.autocomplete", item )
+              .append( "<a>" + strNewLabel + "</a>" )
+              .appendTo( ul );
+
+       };
+
+    });
