@@ -126,3 +126,45 @@ $(function () {
         }
     });
 });
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>JS Bin</title>
+<!--[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<style>
+  article, aside, figure, footer, header, hgroup, 
+  menu, nav, section { display: block; }
+  table{
+    border: solid 1px gray;
+    width: 100%;
+  }
+  
+  table td{ padding: 2px 0; }
+  table .hello{ width: 150px; }
+  table .last{ padding-right: 2px; }
+  
+  input
+  {
+    width: 100%;
+    padding: 10px;
+    margin: 0px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid #CCC;
+  }
+</style>
+</head>
+<body>
+  <h3>Using box-sizing</h3>
+  <table>
+    <tr>
+      <td class='hello'>Hello</td>
+      <td class='last'><input type='text' value='hihihih' /></td>
+    </tr>
+  </table>
+</body>
+</html>
